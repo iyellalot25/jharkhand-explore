@@ -32,18 +32,26 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8 items-center">
+          <div className="hidden md:flex space-x-4 items-center">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`hover:text-orange-400 transition-colors ${
-                  pathname === item.href ? 'text-orange-400 font-semibold' : ''
+                className={`hover:text-orange-400 transition-colors px-3 py-2 rounded-md text-sm font-medium ${
+                  pathname === item.href ? 'text-orange-400 bg-green-800' : ''
                 }`}
               >
                 {item.label}
               </Link>
             ))}
+            
+            {/* Admin Portal Button */}
+            <Link
+              href="/admin/login"
+              className="bg-white text-green-700 hover:bg-gray-100 px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-sm"
+            >
+              Admin Portal
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -81,6 +89,15 @@ const Navbar = () => {
                 {item.label}
               </Link>
             ))}
+            
+            {/* Admin Portal Button for Mobile */}
+            <Link
+              href="/admin/login"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block bg-white text-green-700 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium transition-colors text-center mt-2"
+            >
+              Admin Portal
+            </Link>
           </div>
         </div>
       </div>

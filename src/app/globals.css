@@ -150,3 +150,37 @@ html {
   mix-blend-mode: difference;
   transition: transform 0.1s ease;
 }
+
+/* Advanced Parallax Styles */
+.parallax-optimized {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Smooth transitions for parallax */
+.parallax-layer {
+  transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .parallax-layer {
+    transition-duration: 0.2s;
+  }
+}
+
+/* Custom cursor enhancement */
+.parallax-cursor {
+  backdrop-filter: blur(4px);
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+}
+
+/* Performance optimizations */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
