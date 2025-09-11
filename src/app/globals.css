@@ -184,3 +184,37 @@ html {
 .will-change-opacity {
   will-change: opacity;
 }
+
+/* Prevent layout shifts during animation */
+.animate-section {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Smooth scrolling without jumps */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent initial animation jumps */
+.prevent-scroll-jump {
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* Ensure smooth animations */
+.smooth-appear {
+  animation: smoothAppear 0.8s ease-out forwards;
+}
+
+@keyframes smoothAppear {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

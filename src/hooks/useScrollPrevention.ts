@@ -5,24 +5,20 @@ import { useEffect } from 'react'
 export function useScrollPrevention() {
   useEffect(() => {
     // Save current scroll position
-    const scrollY = window.scrollY
+    const savedScrollPosition = window.scrollY
     
-    // Prevent scrolling during initial load
-    const preventScroll = (e: Event) => {
-      e.preventDefault()
-    }
-
-    // Add event listener to prevent scroll
-    window.addEventListener('scroll', preventScroll, { passive: false })
+    // Temporarily disable scroll
+    const originalStyle = window.getComputedStyle(document.body).overflow
+    document.body.style.overflow = 'hidden'
     
-    // Restore after a short delay
+    // Restore after components are mounted
     const timer = setTimeout(() => {
-      window.removeEventListener('scroll', preventScroll)
-      window.scrollTo(0, scrollY) // Restore original position
+      document.body.style.overflow = originalStyle
+      window.scrollTo(0, savedScrollPosition)
     }, 100)
 
     return () => {
-      window.removeEventListener('scroll', preventScroll)
+      document.body.style.overflow = originalStyle
       clearTimeout(timer)
     }
   }, [])
