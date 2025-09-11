@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import TransportSearch from '@/components/TransportSearch'
+import BookingsList from '@/components/BookingsList'
 import AnimatedSection from '@/components/AnimatedSection'
 
 export default function TransportPage() {
@@ -62,20 +63,7 @@ export default function TransportPage() {
         <AnimatedSection delay={0.3}>
           {activeTab === 'search' && <TransportSearch />}
           
-          {activeTab === 'bookings' && (
-            <div className="bg-white rounded-lg shadow-md p-6 text-center">
-              <div className="text-5xl mb-4">📋</div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                My Bookings
-              </h3>
-              <p className="text-gray-600 mb-4">
-                View and manage your transport bookings here.
-              </p>
-              <p className="text-sm text-gray-500">
-                This feature will be available soon.
-              </p>
-            </div>
-          )}
+          {activeTab === 'bookings' && <BookingsList />}
           
           {activeTab === 'info' && (
             <div className="bg-white rounded-lg shadow-md p-6">

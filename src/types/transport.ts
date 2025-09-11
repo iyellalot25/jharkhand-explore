@@ -55,3 +55,26 @@ export interface TransportBooking {
   status: 'confirmed' | 'waiting' | 'cancelled'
   bookingDate: string
 }
+
+export interface TransportBooking {
+  id: string
+  bookingId: string
+  scheduleId: string
+  transportNumber: string
+  transportName: string
+  transportType: 'train' | 'bus'
+  fromStation: string
+  toStation: string
+  departureTime: string
+  arrivalTime: string
+  travelDate: string
+  passengerName: string
+  passengerAge: number
+  passengerGender: string
+  passengerEmail: string
+  passengerPhone: string
+  fare: number
+  status: 'confirmed' | 'waiting' | 'cancelled'
+  bookingDate: string
+  seatNumber?: string
+}
