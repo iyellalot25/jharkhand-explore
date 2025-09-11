@@ -47,7 +47,8 @@ export default function ChatPage() {
                   className="bg-white p-4 rounded-lg shadow hover:shadow-lg transition-shadow"
                 >
                   <div className="text-2xl mb-2">{faq.icon}</div>
-                  <h3 className="font-semibold mb-2">{faq.question}</h3>
+                  {/* Added text-gray-800 class to ensure proper contrast */}
+                  <h3 className="font-semibold mb-2 text-gray-800">{faq.question}</h3>
                   <p className="text-sm text-gray-600">{faq.hint}</p>
                 </div>
               ))}
