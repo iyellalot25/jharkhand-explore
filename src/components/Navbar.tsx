@@ -14,6 +14,7 @@ const Navbar = () => {
     { href: '/itinerary', label: 'Plan Trip' },
     { href: '/marketplace', label: 'Marketplace' },
     {href: '/services', label: 'Local Guide & Services'},
+    {href: '/transport', label: 'Transport Booking'},
     { href: '/chat', label: 'Chat' },
   ]
 
