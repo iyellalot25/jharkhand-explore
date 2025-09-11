@@ -37,3 +37,56 @@ export interface GeneratedItinerary {
   generated_itinerary: string
   created_at: string
 }
+
+export interface LocalGuide {
+  id: string
+  name: string
+  profile_image: string
+  specialty: 'nature' | 'culture' | 'adventure' | 'wildlife' | 'photography'
+  languages: string[]
+  experience_years: number
+  rating: number
+  review_count: number
+  hourly_rate: number
+  description: string
+  contact_number: string
+  email: string
+  verified: boolean
+  location: string
+  services: string[]
+  created_at: string
+}
+
+export interface TransportService {
+  id: string
+  name: string
+  service_type: 'taxi' | 'rental' | 'tour_vehicle' | 'bike_rental'
+  vehicle_type: string
+  capacity: number
+  rate_per_km?: number
+  rate_per_hour?: number
+  rate_per_day?: number
+  rating: number
+  review_count: number
+  contact_number: string
+  verified: boolean
+  location: string
+  description: string
+  available: boolean
+  created_at: string
+}
+
+export interface BookingRequest {
+  id: string
+  service_type: 'guide' | 'transport'
+  service_id: string
+  user_name: string
+  user_email: string
+  user_phone: string
+  booking_date: string
+  duration: number
+  participants?: number
+  message: string
+  status: 'pending' | 'confirmed' | 'rejected' | 'completed'
+  created_at: string
+}

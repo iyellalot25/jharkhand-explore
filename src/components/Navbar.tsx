@@ -13,6 +13,7 @@ const Navbar = () => {
     { href: '/destinations', label: 'Destinations' },
     { href: '/itinerary', label: 'Plan Trip' },
     { href: '/marketplace', label: 'Marketplace' },
+    {href: '/services', label: 'Local Guide & Services'},
     { href: '/chat', label: 'Chat' },
   ]
 

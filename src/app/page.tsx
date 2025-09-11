@@ -13,27 +13,27 @@ export default function Home() {
   const parallaxLayers = [
     {
       image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&auto=format&fit=crop', // Distant mountains
-      speed: 0.05,
+      speed: 0.1,
       scale: 1.3,
       opacity: 0.4
     },
     {
       image: 'https://images.unsplash.com/photo-1571863533956-01c88e79957e?w=1200&auto=format&fit=crop', // Forest layer
-      speed: 0.1,
+      speed: 0.2,
       scale: 1.2,
       opacity: 0.6
     },
     {
       image: 'https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=1200&auto=format&fit=crop', // Waterfall foreground
-      speed: 0.2,
+      speed: 0.8,
       scale: 1.1,
       opacity: 0.8
     },
     {
       image: 'https://images.unsplash.com/photo-1505852679233-d9fd70aff56d?w=1200&auto=format&fit=crop', // Texture overlay
-      speed: 0.3,
+      speed: 0.6,
       scale: 1.0,
-      opacity: 0.3,
+      opacity: 0.4,
       blendMode: 'overlay'
     }
   ]
