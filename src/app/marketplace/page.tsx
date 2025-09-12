@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import ProductCard from '@/components/ProductCard'
+import ProductModal from '@/components/ProductModal'
 import { marketplaceItems, Product } from '@/data/marketplace'
 import AnimatedSection from '@/components/AnimatedSection'
 import AnimatedCard from '@/components/AnimatedCard'
@@ -12,6 +13,8 @@ type Category = 'all' | 'handicraft' | 'homestay' | 'experience'
 export default function MarketplacePage() {
   const [selectedCategory, setSelectedCategory] = useState<Category>('all')
   const [searchTerm, setSearchTerm] = useState('')
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const filteredProducts = marketplaceItems.filter(product => {
     const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory
@@ -27,6 +30,16 @@ export default function MarketplacePage() {
     { id: 'homestay', name: 'Homestays', count: marketplaceItems.filter(p => p.category === 'homestay').length },
     { id: 'experience', name: 'Experiences', count: marketplaceItems.filter(p => p.category === 'experience').length },
   ]
+
+  const handleViewDetails = (product: Product) => {
+    setSelectedProduct(product)
+    setIsModalOpen(true)
+  }
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false)
+    setSelectedProduct(null)
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-white py-12">
@@ -101,7 +114,10 @@ export default function MarketplacePage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredProducts.map((product, index) => (
                 <AnimatedCard key={product.id} index={index}>
-                  <ProductCard product={product} />
+                  <ProductCard 
+                    product={product} 
+                    onViewDetails={handleViewDetails}
+                  />
                 </AnimatedCard>
               ))}
             </div>
@@ -153,6 +169,13 @@ export default function MarketplacePage() {
             </div>
           </motion.div>
         </AnimatedSection>
+
+        {/* Product Modal */}
+        <ProductModal
+          product={selectedProduct}
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+        />
       </div>
     </div>
   )

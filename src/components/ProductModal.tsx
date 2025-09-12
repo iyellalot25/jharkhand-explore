@@ -39,7 +39,7 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
               />
               <button
                 onClick={onClose}
-                className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md hover:bg-gray-100"
+                className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md hover:bg-gray-100 text-gray-800"
               >
                 ✕
               </button>
@@ -53,20 +53,20 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
                 {product.name}
               </h2>
               
-              <p className="text-gray-600 mb-4">
+              <p className="text-gray-700 mb-4"> {/* Changed from text-gray-600 to text-gray-700 */}
                 {product.description}
               </p>
 
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="bg-green-50 p-3 rounded-lg">
-                  <p className="text-sm text-green-600">Location</p>
-                  <p className="font-semibold">📍 {product.location}</p>
+                  <p className="text-sm text-green-700 font-medium mb-1">Location</p> {/* Added font-medium and mb-1 */}
+                  <p className="font-semibold text-gray-900">📍 {product.location}</p> {/* Changed to text-gray-900 */}
                 </div>
                 <div className="bg-green-50 p-3 rounded-lg">
-                  <p className="text-sm text-green-600">Price</p>
-                  <p className="font-semibold">
+                  <p className="text-sm text-green-700 font-medium mb-1">Price</p> {/* Added font-medium and mb-1 */}
+                  <p className="font-semibold text-gray-900"> {/* Changed to text-gray-900 */}
                     {product.currency}{product.price}
-                    <span className="text-sm font-normal text-gray-500 ml-1">
+                    <span className="text-sm font-normal text-gray-600 ml-1"> {/* Changed to text-gray-600 */}
                       / {product.category === 'homestay' ? 'night' : 'person'}
                     </span>
                   </p>
@@ -75,7 +75,7 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
 
               {product.rating && (
                 <div className="flex items-center mb-6">
-                  <span className="text-lg font-semibold mr-2">Rating:</span>
+                  <span className="text-lg font-semibold text-gray-900 mr-2">Rating:</span> {/* Changed to text-gray-900 */}
                   <div className="flex items-center bg-green-100 text-green-800 px-3 py-1 rounded-full">
                     ⭐ {product.rating}/5
                   </div>
@@ -86,7 +86,7 @@ export default function ProductModal({ product, isOpen, onClose }: ProductModalP
                 <button className="flex-1 bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors">
                   Book Now
                 </button>
-                <button className="flex-1 border border-green-600 text-green-600 hover:bg-green-50 py-3 px-6 rounded-lg font-semibold transition-colors">
+                <button className="flex-1 border border-green-600 text-green-700 hover:bg-green-50 py-3 px-6 rounded-lg font-semibold transition-colors"> {/* Changed to text-green-700 */}
                   Add to Wishlist
                 </button>
               </div>
