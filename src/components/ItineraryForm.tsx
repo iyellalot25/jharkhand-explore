@@ -44,7 +44,7 @@ const ItineraryForm: React.FC<ItineraryFormProps> = ({ onSubmit, loading }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-md p-6">
+    <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-md p-6 h-[70vh] overflow-y-auto">
       <h2 className="text-2xl font-semibold text-green-800 mb-6">
         Plan Your Jharkhand Adventure
       </h2>

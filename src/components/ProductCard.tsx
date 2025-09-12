@@ -3,9 +3,10 @@ import { Product } from '@/data/marketplace'
 
 interface ProductCardProps {
   product: Product
+  onViewDetails: (product: Product) => void
 }
 
-export default function ProductCard({ product }: ProductCardProps) {
+export default function ProductCard({ product, onViewDetails }: ProductCardProps) {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
       <div className="relative h-48 w-full">
@@ -44,7 +45,10 @@ export default function ProductCard({ product }: ProductCardProps) {
         
         <div className="flex justify-between items-center text-sm text-gray-500">
           <span>📍 {product.location}</span>
-          <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-sm transition-colors">
+          <button 
+            onClick={() => onViewDetails(product)}
+            className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-sm transition-colors"
+          >
             View Details
           </button>
         </div>

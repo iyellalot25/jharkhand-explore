@@ -32,7 +32,7 @@ const ItineraryDisplay: React.FC<ItineraryDisplayProps> = ({
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6">
+    <div className="bg-white rounded-lg shadow-md p-6 h-[70vh] overflow-y-auto"> {/* Added height and scroll */}
       <div className="flex justify-between items-start mb-4">
         <h3 className="text-2xl font-semibold text-green-800">Your Jharkhand Itinerary</h3>
         <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">

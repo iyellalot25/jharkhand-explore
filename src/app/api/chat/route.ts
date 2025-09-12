@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server'
 import { supabase } from '@/lib/supabase'
 import { GoogleGenerativeAI } from '@google/generative-ai'
 
+
+// Then render `cleanText` in your component
+
 // Language-specific prompts
 const LANGUAGE_PROMPTS: { [key: string]: string } = {
   en: "You are a helpful assistant for Jharkhand tourism. Answer this question: {message}. Provide information about Jharkhand tourist places like Netarhat, Betla National Park, Hundru Falls. Keep the answer concise and helpful.",
