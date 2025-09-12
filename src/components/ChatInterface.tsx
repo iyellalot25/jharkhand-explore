@@ -16,6 +16,8 @@ const SUPPORTED_LANGUAGES = [
   { code: 'hi', name: 'Hindi', native: 'हिंदी', emoji: '🇮🇳' },
   { code: 'bn', name: 'Bengali', native: 'বাংলা', emoji: '🇧🇩' },
   { code: 'or', name: 'Odia', native: 'ଓଡ଼ିଆ', emoji: '🟢' },
+  { code: 'ta', name: 'Tamil', native: 'தமிழ்', emoji: '🇮🇳' },
+  { code: 'te', name: 'Telugu', native: 'తెలుగు', emoji: '🇮🇳' },
   { code: 'sat', name: 'Santali', native: 'ᱥᱟᱱᱛᱟᱲᱤ', emoji: '🌳' },
   { code: 'mun', name: 'Mundari', native: 'मुंडारी', emoji: '🎯' },
   { code: 'kur', name: 'Kurukh', native: 'कुरुख', emoji: '🏹' },
