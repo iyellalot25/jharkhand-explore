@@ -1,3 +1,4 @@
+// DestinationCard.tsx - Update the onSelect handler
 'use client'
 
 import Image from 'next/image'
@@ -7,10 +8,33 @@ import { motion } from 'framer-motion'
 
 interface DestinationCardProps {
   destination: Destination
+  onSelect?: () => void  // New optional prop for map selection
 }
 
-const DestinationCard: React.FC<DestinationCardProps> = ({ destination }) => {
+const DestinationCard: React.FC<DestinationCardProps> = ({ destination, onSelect }) => {
   const [imageError, setImageError] = useState(false)
+
+  const handleViewOnMap = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    
+    // Scroll to the map first
+    const mapElement = document.getElementById('osm-map-container');
+    if (mapElement) {
+      mapElement.scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    // Then trigger map initialization if it hasn't loaded yet
+    setTimeout(() => {
+      if (typeof window !== 'undefined' && (window as any).initializeOSMMap) {
+        (window as any).initializeOSMMap();
+      }
+      
+      // Call the original onSelect callback if provided
+      if (onSelect) {
+        onSelect();
+      }
+    }, 300); // Small delay to allow scrolling to complete
+  }
 
   return (
     <motion.div 
@@ -67,6 +91,19 @@ const DestinationCard: React.FC<DestinationCardProps> = ({ destination }) => {
             {destination.category}
           </span>
         </motion.div>
+
+        {/* New map button - only shows if onSelect prop is provided */}
+        {onSelect && (
+          <motion.button
+            onClick={handleViewOnMap}
+            className="mt-4 flex items-center gap-1 text-green-600 hover:text-green-800 text-sm font-medium"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <span>🗺️</span>
+            View on Map
+          </motion.button>
+        )}
       </div>
     </motion.div>
   )

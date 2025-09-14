@@ -1,3 +1,5 @@
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -217,4 +219,11 @@ html {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* app/globals.css */
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
 }

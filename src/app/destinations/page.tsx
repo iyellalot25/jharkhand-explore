@@ -5,11 +5,14 @@ import DestinationCard from '@/components/DestinationCard'
 import { Destination } from '@/types/database'
 import AnimatedSection from '@/components/AnimatedSection'
 import AnimatedCard from '@/components/AnimatedCard'
+import OSMMap from '@/components/OSMMap'
 
 export default function DestinationsPage() {
   const [destinations, setDestinations] = useState<Destination[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [selectedDestination, setSelectedDestination] = useState<Destination | null>(null)
+  const [showMap, setShowMap] = useState(false)
 
   useEffect(() => {
     const fetchDestinations = async () => {
@@ -28,11 +31,25 @@ export default function DestinationsPage() {
     fetchDestinations()
   }, [])
 
+  const handleDestinationSelect = (destination: Destination) => {
+    setSelectedDestination(destination)
+    setShowMap(true)
+    // Scroll to map section
+    document.getElementById('map-section')?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  const handleViewAllOnMap = () => {
+    setSelectedDestination(null)
+    setShowMap(true)
+    document.getElementById('map-section')?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-green-50 to-white py-12">
         <div className="container mx-auto px-4 text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto"></div>
+          <p className="mt-4 text-green-800">Loading destinations...</p>
         </div>
       </div>
     )
@@ -42,7 +59,9 @@ export default function DestinationsPage() {
     return (
       <div className="min-h-screen bg-gradient-to-b from-green-50 to-white py-12">
         <div className="container mx-auto px-4 text-center">
-          <div className="text-red-600">Error: {error}</div>
+          <div className="text-red-600 bg-red-50 p-4 rounded-lg max-w-md mx-auto">
+            <span className="font-medium">Error:</span> {error}
+          </div>
         </div>
       </div>
     )
@@ -52,25 +71,86 @@ export default function DestinationsPage() {
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-white py-12">
       <div className="container mx-auto px-4">
         <AnimatedSection>
-          <h1 className="text-4xl font-bold text-green-800 text-center mb-8">
+          <h1 className="text-4xl font-bold text-green-800 text-center mb-4">
             🌄 Explore Jharkhand
           </h1>
         </AnimatedSection>
 
         <AnimatedSection delay={0.2}>
-          <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+          <p className="text-gray-600 text-center mb-8 max-w-2xl mx-auto">
             Discover the hidden gems of Jharkhand with our curated list of must-visit destinations. 
             From stunning waterfalls to rich cultural heritage, experience the best of this beautiful state.
           </p>
         </AnimatedSection>
+
+        <AnimatedSection delay={0.3}>
+          <div className="flex justify-center mb-8">
+            <button 
+              onClick={handleViewAllOnMap}
+              className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+            >
+              <span>🗺️ View All on Map</span>
+            </button>
+          </div>
+        </AnimatedSection>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {destinations.map((destination, index) => (
-            <AnimatedCard key={destination.id} index={index}>
-              <DestinationCard destination={destination} />
-            </AnimatedCard>
-          ))}
-        </div>
+        <AnimatedSection delay={0.4}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {destinations.map((destination, index) => (
+              <AnimatedCard key={destination.id} index={index}>
+                <DestinationCard 
+                  destination={destination} 
+                  onSelect={() => handleDestinationSelect(destination)}
+                />
+              </AnimatedCard>
+            ))}
+          </div>
+        </AnimatedSection>
+
+        {/* Map Section - Only render if there are destinations */}
+        {destinations.length > 0 && (
+          <section id="map-section" className="mb-12">
+            <AnimatedSection>
+              <h2 className="text-2xl font-bold text-green-800 text-center mb-6">
+                {selectedDestination ? `${selectedDestination.name} on Map` : 'Jharkhand Tourism Map'}
+              </h2>
+            </AnimatedSection>
+            
+            <AnimatedSection delay={0.2}>
+              <OSMMap 
+                destinations={destinations} 
+                selectedDestination={selectedDestination}
+                className="rounded-lg shadow-md"
+                autoInit={false} // This prevents automatic loading
+              />
+            </AnimatedSection>
+          </section>
+        )}
+
+        {/* Additional Information */}
+        <AnimatedSection>
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <h2 className="text-xl font-semibold text-green-800 mb-4">🌍 Plan Your Visit</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="font-medium text-green-700 mb-2">Best Time to Visit</h3>
+                <p className="text-gray-600 text-sm">
+                  October to March is the ideal time to explore Jharkhand, when the weather is pleasant 
+                  and perfect for sightseeing and outdoor activities.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-medium text-green-700 mb-2">Travel Tips</h3>
+                <ul className="text-gray-600 text-sm list-disc list-inside space-y-1">
+                  <li>Carry water and snacks during treks</li>
+                  <li>Respect local tribal customs and traditions</li>
+                  <li>Wear comfortable shoes for exploring</li>
+                  <li>Keep local emergency numbers handy</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
       </div>
     </div>
   )
