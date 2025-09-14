@@ -13,6 +13,7 @@ export default function DestinationsPage() {
   const [error, setError] = useState<string | null>(null)
   const [selectedDestination, setSelectedDestination] = useState<Destination | null>(null)
   const [showMap, setShowMap] = useState(false)
+  const [searchTerm, setSearchTerm] = useState('') // ✅ new state for search
 
   useEffect(() => {
     const fetchDestinations = async () => {
@@ -34,15 +35,26 @@ export default function DestinationsPage() {
   const handleDestinationSelect = (destination: Destination) => {
     setSelectedDestination(destination)
     setShowMap(true)
-    // Scroll to map section
     document.getElementById('map-section')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   const handleViewAllOnMap = () => {
     setSelectedDestination(null)
     setShowMap(true)
+
+    setTimeout(() => {
+      if (typeof window !== 'undefined' && (window as any).initializeOSMMap) {
+        (window as any).initializeOSMMap()
+      }
+    }, 100)
+
     document.getElementById('map-section')?.scrollIntoView({ behavior: 'smooth' })
   }
+
+  // ✅ Filtered destinations
+  const filteredDestinations = destinations.filter(d =>
+    d.name.toLowerCase().includes(searchTerm.toLowerCase())
+  )
 
   if (loading) {
     return (
@@ -83,6 +95,19 @@ export default function DestinationsPage() {
           </p>
         </AnimatedSection>
 
+        {/* ✅ Search Bar */}
+        <AnimatedSection delay={0.25}>
+          <div className="flex justify-center mb-6">
+            <input
+              type="text"
+              placeholder="🔍 Search destinations..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full md:w-1/2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+            />
+          </div>
+        </AnimatedSection>
+
         <AnimatedSection delay={0.3}>
           <div className="flex justify-center mb-8">
             <button 
@@ -94,20 +119,24 @@ export default function DestinationsPage() {
           </div>
         </AnimatedSection>
         
-        <AnimatedSection delay={0.4}>
+        <AnimatedSection delay={0.35}>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {destinations.map((destination, index) => (
-              <AnimatedCard key={destination.id} index={index}>
-                <DestinationCard 
-                  destination={destination} 
-                  onSelect={() => handleDestinationSelect(destination)}
-                />
-              </AnimatedCard>
-            ))}
+            {filteredDestinations.length > 0 ? (
+              filteredDestinations.map((destination, index) => (
+                <AnimatedCard key={destination.id} index={index}>
+                  <DestinationCard 
+                    destination={destination} 
+                    onSelect={() => handleDestinationSelect(destination)}
+                  />
+                </AnimatedCard>
+              ))
+            ) : (
+              <p className="text-center text-gray-500 col-span-full">No destinations found.</p>
+            )}
           </div>
         </AnimatedSection>
 
-        {/* Map Section - Only render if there are destinations */}
+        {/* Map Section */}
         {destinations.length > 0 && (
           <section id="map-section" className="mb-12">
             <AnimatedSection>
@@ -121,13 +150,13 @@ export default function DestinationsPage() {
                 destinations={destinations} 
                 selectedDestination={selectedDestination}
                 className="rounded-lg shadow-md"
-                autoInit={false} // This prevents automatic loading
+                autoInit={false}
               />
             </AnimatedSection>
           </section>
         )}
 
-        {/* Additional Information */}
+        {/* Additional Info */}
         <AnimatedSection>
           <div className="bg-white rounded-lg shadow-md p-6">
             <h2 className="text-xl font-semibold text-green-800 mb-4">🌍 Plan Your Visit</h2>
