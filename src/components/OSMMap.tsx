@@ -160,6 +160,13 @@ const OSMMap = ({
       type: 'attraction',
       position: [23.44, 85.52],
       description: 'Beautiful waterfall named after Goddess Sita, near Ranchi'
+    },
+    {
+      id: 'attr24',
+      name: 'Jagannath Temple',
+      type: 'attraction',
+      position: [23.31694, 85.28167],
+      description: 'Historic 17th-century temple dedicated to Lord Jagannath, located atop a hillock in Dhurwa, Ranchi.'
     }
   ];
 

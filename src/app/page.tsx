@@ -143,7 +143,7 @@ export default function Home() {
               { 
                 icon: '🌐', 
                 title: 'Multilingual Support', 
-                desc: 'Chat seamlessly in English or Hindi for all your travel queries and local insights',
+                desc: 'Chat seamlessly in 11+ languages for all your travel queries and local insights',
                 color: 'from-green-500 to-emerald-500'
               },
               { 
