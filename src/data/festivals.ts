@@ -1,0 +1,121 @@
+import { Festival } from '@/types/database'
+
+export const festivals: Festival[] = [
+  {
+    id: '1',
+    name: 'Sarhul',
+    description: 'The flower festival celebrated by tribal communities to worship nature.',
+    start_date: '2024-03-25',
+    end_date: '2024-03-27',
+    location: 'Throughout Jharkhand',
+    category: 'tribal',
+    image_url: '/images/festivals/Sarhul.jpg',
+    significance: 'Welcoming spring and new beginnings',
+    activities: ['Traditional dances', 'Flower offerings', 'Community feasts', 'Cultural performances'],
+    is_public_holiday: true
+  },
+  {
+    id: '2',
+    name: 'Karma',
+    description: 'A major tribal festival dedicated to the worship of Karam Devta (God of Fate).',
+    start_date: '2024-08-15',
+    end_date: '2024-08-17',
+    location: 'Tribal areas of Jharkhand',
+    category: 'tribal',
+    image_url: '/images/festivals/karma.jpg',
+    significance: 'Seeking blessings for good fortune and prosperity',
+    activities: ['Karam tree worship', 'Traditional songs', 'Group dancing', 'Community gatherings'],
+    is_public_holiday: false
+  },
+  {
+    id: '3',
+    name: 'Tusu Parab',
+    description: 'Harvest festival celebrated mainly by tribal women.',
+    start_date: '2024-12-25',
+    end_date: '2025-01-01',
+    location: 'Eastern Jharkhand',
+    category: 'harvest',
+    image_url: '/images/festivals/tusu.jpg',
+    significance: 'Celebrating harvest and feminine energy',
+    activities: ['Tusu singing', 'Processions', 'Traditional rituals', 'Village fairs'],
+    is_public_holiday: false
+  },
+  {
+    id: '4',
+    name: 'Holi',
+    description: 'The festival of colors celebrated with great enthusiasm across Jharkhand.',
+    start_date: '2024-03-25',
+    end_date: '2024-03-26',
+    location: 'Throughout Jharkhand',
+    category: 'religious',
+    image_url: '/images/festivals/holi.jpg',
+    significance: 'Victory of good over evil and arrival of spring',
+    activities: ['Color playing', 'Traditional sweets', 'Music and dance', 'Community celebrations'],
+    is_public_holiday: true
+  },
+  {
+    id: '5',
+    name: 'Chhath Puja',
+    description: 'Ancient Hindu festival dedicated to the Sun God.',
+    start_date: '2024-11-07',
+    end_date: '2024-11-10',
+    location: 'River banks across Jharkhand',
+    category: 'religious',
+    image_url: '/images/festivals/chhat.jpg',
+    significance: 'Worship of Sun God for health and prosperity',
+    activities: ['River rituals', 'Fasting', 'Offerings to sun', 'Family gatherings'],
+    is_public_holiday: true
+  },
+  {
+    id: '6',
+    name: 'Jharkhand Foundation Day',
+    description: 'Celebration of the formation of Jharkhand state.',
+    start_date: '2024-11-15',
+    end_date: '2024-11-15',
+    location: 'Throughout Jharkhand',
+    category: 'cultural',
+    image_url: '/images/festivals/jharkhand.jpg',
+    significance: 'Commemorating statehood achieved in 2000',
+    activities: ['Cultural programs', 'Official ceremonies', 'Exhibitions', 'Patriotic events'],
+    is_public_holiday: true
+  },
+  {
+    id: '7',
+    name: 'Diwali',
+    description: 'The festival of lights celebrated by all communities.',
+    start_date: '2024-10-31',
+    end_date: '2024-11-01',
+    location: 'Throughout Jharkhand',
+    category: 'religious',
+    image_url: '/images/festivals/diwali.jpg',
+    significance: 'Victory of light over darkness',
+    activities: ['Diya lighting', 'Fireworks', 'Sweets exchange', 'Family gatherings'],
+    is_public_holiday: true
+  },
+  {
+    id: '8',
+    name: 'Baha Parab',
+    description: 'Spring festival of the Santhal tribe celebrating nature.',
+    start_date: '2024-02-20',
+    end_date: '2024-02-22',
+    location: 'Santhal regions of Jharkhand',
+    category: 'tribal',
+    image_url: '/images/festivals/Baha_Parab.jpg',
+    significance: 'Welcoming spring and forest conservation',
+    activities: ['Flower offerings', 'Traditional dances', 'Forest rituals', 'Community feasts'],
+    is_public_holiday: false
+  },
+  {
+  id: '9',
+  name: 'Bhoomi Puja',
+  description: 'A traditional ceremony to honor the Earth before starting construction or new projects.',
+  start_date: '2024-09-05',
+  end_date: '2024-09-05',
+  location: 'Throughout Jharkhand',
+  category: 'cultural',
+  image_url: 'https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=500',
+  significance: 'Seeking blessings from the Earth for safety, prosperity, and success',
+  activities: ['Ritual prayers', 'Offerings to the earth', 'Cultural songs', 'Community participation'],
+  is_public_holiday: false
+}
+]

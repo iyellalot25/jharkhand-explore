@@ -12,9 +12,10 @@ const Navbar = () => {
     { href: '/', label: 'Home' },
     { href: '/destinations', label: 'Destinations' },
     { href: '/itinerary', label: 'Plan Trip' },
+    { href: '/festivals', label: 'Festival Calendar' },
     { href: '/marketplace', label: 'Marketplace' },
-    {href: '/services', label: 'Local Guide & Services'},
-    {href: '/transport', label: 'Transport Booking'},
+    { href: '/services', label: 'Local Guide & Services' },
+    { href: '/transport', label: 'Transport Booking' },
     { href: '/chat', label: 'Chat' },
   ]
 
@@ -25,32 +26,35 @@ const Navbar = () => {
   return (
     <nav className="bg-green-700 text-white shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between h-16 items-center">
           {/* Logo */}
-          <div className="flex items-center">
-            <Link href="/" className="text-xl font-bold hover:text-orange-400 transition-colors">
+          <div className="flex-shrink-0 mr-6">
+            <Link
+              href="/"
+              className="text-xl font-bold hover:text-orange-400 transition-colors whitespace-nowrap"
+            >
               Jharkhand Explore
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-4 items-center">
+          <div className="hidden md:flex space-x-2 items-center flex-1 justify-end">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`hover:text-orange-400 transition-colors px-3 py-2 rounded-md text-sm font-medium ${
+                className={`hover:text-orange-400 transition-colors px-2 py-1 md:px-3 md:py-2 rounded-md text-xs md:text-sm font-medium whitespace-nowrap ${
                   pathname === item.href ? 'text-orange-400 bg-green-800' : ''
                 }`}
               >
                 {item.label}
               </Link>
             ))}
-            
+
             {/* Admin Portal Button */}
             <Link
               href="/admin/login"
-              className="bg-white text-green-700 hover:bg-gray-100 px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-sm"
+              className="bg-white text-green-700 hover:bg-gray-100 px-3 py-1 md:px-4 md:py-2 rounded-md text-xs md:text-sm font-medium transition-colors shadow-sm whitespace-nowrap"
             >
               Admin Portal
             </Link>
@@ -82,7 +86,7 @@ const Navbar = () => {
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                className={`block px-3 py-2 rounded-md text-sm font-medium transition-colors whitespace-nowrap ${
                   pathname === item.href
                     ? 'text-orange-400 bg-green-900'
                     : 'text-white hover:text-orange-400 hover:bg-green-900'
@@ -91,12 +95,12 @@ const Navbar = () => {
                 {item.label}
               </Link>
             ))}
-            
+
             {/* Admin Portal Button for Mobile */}
             <Link
               href="/admin/login"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block bg-white text-green-700 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium transition-colors text-center mt-2"
+              className="block bg-white text-green-700 hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-medium transition-colors text-center mt-2 whitespace-nowrap"
             >
               Admin Portal
             </Link>

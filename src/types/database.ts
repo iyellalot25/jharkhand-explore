@@ -90,3 +90,17 @@ export interface BookingRequest {
   status: 'pending' | 'confirmed' | 'rejected' | 'completed'
   created_at: string
 }
+
+export interface Festival {
+  id: string
+  name: string
+  description: string
+  start_date: string
+  end_date: string
+  location: string
+  category: 'tribal' | 'religious' | 'cultural' | 'harvest'
+  image_url?: string
+  significance: string
+  activities: string[]
+  is_public_holiday: boolean
+}
