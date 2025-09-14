@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import DestinationCard from '@/components/DestinationCard'
 import { Destination } from '@/types/database'
 import AnimatedSection from '@/components/AnimatedSection'
@@ -13,7 +13,9 @@ export default function DestinationsPage() {
   const [error, setError] = useState<string | null>(null)
   const [selectedDestination, setSelectedDestination] = useState<Destination | null>(null)
   const [showMap, setShowMap] = useState(false)
-  const [searchTerm, setSearchTerm] = useState('') // ✅ new state for search
+  const [searchTerm, setSearchTerm] = useState('')
+  const [isMobile, setIsMobile] = useState(false)
+  const [visibleCount, setVisibleCount] = useState(12) // Initial number of cards to show
 
   useEffect(() => {
     const fetchDestinations = async () => {
@@ -30,6 +32,20 @@ export default function DestinationsPage() {
     }
 
     fetchDestinations()
+    
+    // Check if device is mobile
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768) // 768px is typical breakpoint for md in Tailwind
+    }
+    
+    // Initial check
+    checkIfMobile()
+    
+    // Add event listener for window resize
+    window.addEventListener('resize', checkIfMobile)
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkIfMobile)
   }, [])
 
   const handleDestinationSelect = (destination: Destination) => {
@@ -51,10 +67,19 @@ export default function DestinationsPage() {
     document.getElementById('map-section')?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  // ✅ Filtered destinations
+  const loadMore = useCallback(() => {
+    setVisibleCount(prev => Math.min(prev + 6, destinations.length))
+  }, [destinations.length])
+
+  // Filtered destinations
   const filteredDestinations = destinations.filter(d =>
     d.name.toLowerCase().includes(searchTerm.toLowerCase())
   )
+
+  // Determine which destinations to display
+  const displayedDestinations = isMobile 
+    ? filteredDestinations.slice(0, visibleCount)
+    : filteredDestinations
 
   if (loading) {
     return (
@@ -95,7 +120,7 @@ export default function DestinationsPage() {
           </p>
         </AnimatedSection>
 
-        {/* ✅ Search Bar */}
+        {/* Search Bar */}
         <AnimatedSection delay={0.25}>
           <div className="flex justify-center mb-6">
             <input
@@ -121,8 +146,8 @@ export default function DestinationsPage() {
         
         <AnimatedSection delay={0.35}>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {filteredDestinations.length > 0 ? (
-              filteredDestinations.map((destination, index) => (
+            {displayedDestinations.length > 0 ? (
+              displayedDestinations.map((destination, index) => (
                 <AnimatedCard key={destination.id} index={index}>
                   <DestinationCard 
                     destination={destination} 
@@ -135,6 +160,20 @@ export default function DestinationsPage() {
             )}
           </div>
         </AnimatedSection>
+
+        {/* Load More Button (Mobile only) */}
+        {isMobile && visibleCount < filteredDestinations.length && (
+          <AnimatedSection>
+            <div className="flex justify-center mb-12">
+              <button
+                onClick={loadMore}
+                className="bg-green-100 hover:bg-green-200 text-green-800 font-medium py-2 px-6 rounded-lg transition-colors"
+              >
+                Load More Destinations
+              </button>
+            </div>
+          </AnimatedSection>
+        )}
 
         {/* Map Section */}
         {destinations.length > 0 && (
