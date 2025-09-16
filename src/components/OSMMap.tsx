@@ -438,6 +438,20 @@ const OSMMap = ({
           color: route.difficulty === 'easy' ? 'green' : route.difficulty === 'medium' ? 'orange' : 'red',
           weight: 5,
           opacity: 0.8,
+          dashArray: route.difficulty === 'hard' ? '5, 10' : undefined,
+          interactive: true,
+          bubblingMouseEvents: true
+        }).addTo(leafletMap);
+        polyline.setStyle({
+          weight: 32,     // clickable area
+          opacity: 0.0,   // invisible
+          className: 'click-buffer'
+        });
+
+        const visiblePolyline = L.polyline(route.path, {
+          color: route.difficulty === 'easy' ? 'green' : route.difficulty === 'medium' ? 'orange' : 'red',
+          weight: 5,
+          opacity: 0.8,
           dashArray: route.difficulty === 'hard' ? '5, 10' : undefined
         }).addTo(leafletMap);
         
@@ -680,4 +694,4 @@ const OSMMap = ({
   );
 };
 
-export default OSMMap;
+export default OSMMap;  
