@@ -135,23 +135,41 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { 
-                icon: '🤖', 
-                title: 'AI-Powered Itineraries', 
-                desc: 'Get personalized trip plans crafted by our intelligent AI based on your preferences and interests',
-                color: 'from-blue-500 to-cyan-500'
+                icon: '🤖🌍', 
+                title: 'AI-Powered Chat & Trip Planner', 
+                desc: 'Get personalized trip plans crafted by AI and chat in 10+ languages for instant tourism insights — your all-in-one travel assistant.',
+                color: 'from-blue-500 to-emerald-500'
               },
               { 
-                icon: '🌐', 
-                title: 'Multilingual Support', 
-                desc: 'Chat seamlessly in 11+ languages for all your travel queries and local insights',
-                color: 'from-green-500 to-emerald-500'
+                icon: '🗺️', 
+                title: 'Interactive Destinations', 
+                desc: 'Discover places with integrated maps showing nearby attractions, trekking routes, navigation, and best time to visit for each location',
+                color: 'from-amber-500 to-yellow-500'
               },
               { 
                 icon: '🛍️', 
                 title: 'Local Marketplace', 
                 desc: 'Discover authentic handicrafts and homestays while supporting local communities',
                 color: 'from-orange-500 to-amber-500'
-              }
+              },
+              { 
+                icon: '🎪', 
+                title: 'Festive Calendar', 
+                desc: 'Explore upcoming events, festivals, and cultural celebrations with dates and locations',
+                color: 'from-red-500 to-pink-500'
+              },
+              { 
+                icon: '🧭', 
+                title: 'Local Guides & Services', 
+                desc: 'Connect with certified local guides, drivers, and experience providers for authentic journeys',
+                color: 'from-teal-500 to-blue-500'
+              },
+              { 
+                icon: '🚆', 
+                title: 'Transport Booking System', 
+                desc: 'Book trains, buses, and local transport with real-time availability and integrated ticketing',
+                color: 'from-purple-500 to-indigo-500'
+              },
             ].map((feature, index) => (
               <AnimatedSection key={index} delay={0.2 + index * 0.1}>
                 <motion.div 
