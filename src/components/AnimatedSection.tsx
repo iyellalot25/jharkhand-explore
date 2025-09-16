@@ -37,7 +37,7 @@ export default function AnimatedSection({
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ 
-        duration: 0.8, 
+        duration: 0.65, 
         delay,
         ease: 'easeOut'
       }}
