@@ -1,36 +1,152 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🌍 Smart Digital Platform for Eco & Cultural Tourism in Jharkhand
+A Smart India Hackathon (SIH 2025) Internal Hackathon Project
+📌 Overview
 
-## Getting Started
+This project was built as part of the Internal Hackathon for Smart India Hackathon (SIH 2025) at VIT-AP University.
+Our team developed a web-based tourism platform that promotes Jharkhand’s eco-tourism, tribal culture, festivals, local experiences, and destinations — using modern AI and interactive technologies.
 
-First, run the development server:
+The goal is to create a centralized, smart, and inclusive tourism ecosystem that benefits both travelers and local communities.
 
-```bash
+🚀 Features
+🤖 AI-Powered Modules
+
+Multilingual AI Chatbot (Gemini API)
+
+Answers Jharkhand tourism–related queries in real time
+
+AI-Based Itinerary Planner
+
+Generates personalized travel plans based on user preferences
+
+🏞️ Destination & Map System
+
+Destination Explorer
+
+Displays destinations from Supabase (with category, description, best time to visit)
+
+Interactive Map (Leaflet.js)
+
+Highlights destinations, nearby attractions, and trekking routes
+
+🎉 Cultural & Festival Insights
+
+Festival Calendar
+
+Shows upcoming festivals + complete cultural events list
+
+🛍️ Local Marketplace (MVP Mockup)
+
+Amazon-like interface for:
+
+Local handicrafts
+
+Homestays
+
+Cultural experiences
+
+🧭 Local Services (MVP Mockup)
+
+Connect with verified:
+
+Local guides
+
+Cab services
+
+Hospitality providers
+
+🚌 Transport Booking (MVP Mockup)
+
+Search routes
+
+Book tickets
+
+Save bookings (local storage persistence in MVP)
+
+🔐 Admin Portal
+
+Manage destinations, festivals, guides, marketplace items & logistics
+
+Secure admin login
+
+🏗️ Tech Stack
+Frontend
+
+Next.js
+
+TypeScript
+
+Tailwind CSS
+
+Framer Motion
+
+Backend / Database
+
+Supabase
+
+APIs & Integrations
+
+Gemini API (AI Chatbot + Itinerary Planner)
+
+Leaflet.js (Maps & Trekking Routes)
+
+🧩 System Architecture
+
+Below is a simplified overview of the platform architecture:
+
+User → Web App → (Chatbot / Itinerary / Destinations / Map / Festivals / Services)
+                           ↓
+                      Supabase DB
+                           ↓
+                     Admin Dashboard
+
+🎯 Purpose
+
+This platform is built to:
+
+Boost eco & cultural tourism in Jharkhand
+
+Empower local artisans, guides & tribal communities
+
+Provide tourists a seamless, AI-driven smart travel experience
+
+Modernize Jharkhand’s tourism infrastructure
+
+🏆 Hackathon Context
+
+This project was developed as part of the Smart India Hackathon Internal Hackathon 2025 hosted by VIT-AP.
+We were selected among the top 45 teams out of 400+, moving into the PPT screening round.
+
+📂 Folder Structure
+root/
+│── src/
+│   ├── app/
+│   ├── components/
+│   ├── lib/
+│   └── utils/
+│── public/
+│── styles/
+│── package.json
+│── README.md
+
+🛠️ Setup Instructions
+1️⃣ Clone the Repository
+git clone https://github.com/<your-username>/<repo-name>.git
+cd <repo-name>
+
+2️⃣ Install Dependencies
+npm install
+
+3️⃣ Add Environment Variables
+
+Create .env.local and add:
+
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+GEMINI_API_KEY=
+
+4️⃣ Run the Project
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+📄 License
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is currently developed for educational & hackathon purposes only.
