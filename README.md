@@ -1,122 +1,126 @@
-🌍 Smart Digital Platform for Eco & Cultural Tourism in Jharkhand
-A Smart India Hackathon (SIH 2025) Internal Hackathon Project
-📌 Overview
+# 🌍 **Smart Digital Platform for Eco & Cultural Tourism in Jharkhand**
 
-This project was built as part of the Internal Hackathon for Smart India Hackathon (SIH 2025) at VIT-AP University.
-Our team developed a web-based tourism platform that promotes Jharkhand’s eco-tourism, tribal culture, festivals, local experiences, and destinations — using modern AI and interactive technologies.
+### *A Smart India Hackathon (SIH 2025) Internal Hackathon Project*
 
-The goal is to create a centralized, smart, and inclusive tourism ecosystem that benefits both travelers and local communities.
+---
 
-🚀 Features
-🤖 AI-Powered Modules
+## 📌 **Overview**
 
-Multilingual AI Chatbot (Gemini API)
+This project was built as part of the **Internal Hackathon for Smart India Hackathon (SIH 2025)** at VIT-AP University.
+Our team developed a **web-based tourism platform** that promotes Jharkhand’s eco-tourism, tribal culture, festivals, local experiences, and destinations — using modern AI and interactive technologies.
 
-Answers Jharkhand tourism–related queries in real time
+The goal is to create a **centralized, smart, and inclusive tourism ecosystem** that benefits both travelers and local communities.
 
-AI-Based Itinerary Planner
+---
 
-Generates personalized travel plans based on user preferences
+## 🚀 **Features**
 
-🏞️ Destination & Map System
+### 🤖 **AI-Powered Modules**
 
-Destination Explorer
+* **Multilingual AI Chatbot (Gemini API)**
 
-Displays destinations from Supabase (with category, description, best time to visit)
+  * Answers Jharkhand tourism–related queries in real time
+* **AI-Based Itinerary Planner**
 
-Interactive Map (Leaflet.js)
+  * Generates personalized travel plans based on user preferences
 
-Highlights destinations, nearby attractions, and trekking routes
+### 🏞️ **Destination & Map System**
 
-🎉 Cultural & Festival Insights
+* **Destination Explorer**
 
-Festival Calendar
+  * Displays destinations from Supabase (with category, description, best time to visit)
+* **Interactive Map (Leaflet.js)**
 
-Shows upcoming festivals + complete cultural events list
+  * Highlights destinations, nearby attractions, and trekking routes
 
-🛍️ Local Marketplace (MVP Mockup)
+### 🎉 **Cultural & Festival Insights**
+
+* **Festival Calendar**
+
+  * Shows upcoming festivals + complete cultural events list
+
+### 🛍️ **Local Marketplace (MVP Mockup)**
 
 Amazon-like interface for:
 
-Local handicrafts
+* Local handicrafts
+* Homestays
+* Cultural experiences
 
-Homestays
-
-Cultural experiences
-
-🧭 Local Services (MVP Mockup)
+### 🧭 **Local Services (MVP Mockup)**
 
 Connect with verified:
 
-Local guides
+* Local guides
+* Cab services
+* Hospitality providers
 
-Cab services
+### 🚌 **Transport Booking (MVP Mockup)**
 
-Hospitality providers
+* Search routes
+* Book tickets
+* Save bookings (local storage persistence in MVP)
 
-🚌 Transport Booking (MVP Mockup)
+### 🔐 **Admin Portal**
 
-Search routes
+* Manage destinations, festivals, guides, marketplace items & logistics
+* Secure admin login
 
-Book tickets
+---
 
-Save bookings (local storage persistence in MVP)
+## 🏗️ **Tech Stack**
 
-🔐 Admin Portal
+### **Frontend**
 
-Manage destinations, festivals, guides, marketplace items & logistics
+* Next.js
+* TypeScript
+* Tailwind CSS
+* Framer Motion
 
-Secure admin login
+### **Backend / Database**
 
-🏗️ Tech Stack
-Frontend
+* Supabase
 
-Next.js
+### **APIs & Integrations**
 
-TypeScript
+* Gemini API (AI Chatbot + Itinerary Planner)
+* Leaflet.js (Maps & Trekking Routes)
 
-Tailwind CSS
+---
 
-Framer Motion
+## 🧩 **System Architecture**
 
-Backend / Database
-
-Supabase
-
-APIs & Integrations
-
-Gemini API (AI Chatbot + Itinerary Planner)
-
-Leaflet.js (Maps & Trekking Routes)
-
-🧩 System Architecture
-
-Below is a simplified overview of the platform architecture:
-
+```
 User → Web App → (Chatbot / Itinerary / Destinations / Map / Festivals / Services)
                            ↓
                       Supabase DB
                            ↓
                      Admin Dashboard
+```
 
-🎯 Purpose
+---
+
+## 🎯 **Purpose**
 
 This platform is built to:
 
-Boost eco & cultural tourism in Jharkhand
+* Boost eco & cultural tourism in Jharkhand
+* Empower local artisans, guides & tribal communities
+* Provide tourists a seamless, AI-driven smart travel experience
+* Modernize Jharkhand’s tourism infrastructure
 
-Empower local artisans, guides & tribal communities
+---
 
-Provide tourists a seamless, AI-driven smart travel experience
+## 🏆 **Hackathon Context**
 
-Modernize Jharkhand’s tourism infrastructure
+This project was developed as part of the **Smart India Hackathon Internal Hackathon 2025** hosted by VIT-AP.
+We were selected among the **top 45 teams out of 400+**, moving into the PPT screening round.
 
-🏆 Hackathon Context
+---
 
-This project was developed as part of the Smart India Hackathon Internal Hackathon 2025 hosted by VIT-AP.
-We were selected among the top 45 teams out of 400+, moving into the PPT screening round.
+## 📂 **Folder Structure**
 
-📂 Folder Structure
+```
 root/
 │── src/
 │   ├── app/
@@ -127,26 +131,43 @@ root/
 │── styles/
 │── package.json
 │── README.md
+```
 
-🛠️ Setup Instructions
-1️⃣ Clone the Repository
+---
+
+## 🛠️ **Setup Instructions**
+
+### 1️⃣ Clone the Repository
+
+```bash
 git clone https://github.com/<your-username>/<repo-name>.git
 cd <repo-name>
+```
 
-2️⃣ Install Dependencies
+### 2️⃣ Install Dependencies
+
+```bash
 npm install
+```
 
-3️⃣ Add Environment Variables
+### 3️⃣ Add Environment Variables
 
-Create .env.local and add:
+Create a `.env.local` file and add:
 
+```env
 NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
 GEMINI_API_KEY=
+```
 
-4️⃣ Run the Project
+### 4️⃣ Run the Project
+
+```bash
 npm run dev
+```
 
-📄 License
+---
 
-This project is currently developed for educational & hackathon purposes only.
+## 📄 **License**
+
+This project is currently developed for **educational & hackathon purposes only**.
