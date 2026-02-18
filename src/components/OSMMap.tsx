@@ -181,18 +181,37 @@ const OSMMap = ({
     .map((dest, index) => {
       // Use actual coordinates for known destinations, fallback to approximate for others
         const destinationCoordinates: { [key: string]: [number, number] } = {
-        'Betla National Park': [23.88, 84.20],
-        'Netarhat': [23.48, 84.27],
-        'Ranchi': [23.34, 85.31],
-        'Dalma Wildlife Sanctuary': [22.93, 86.20],
-
-        // Promoted from attractions
-        'Parasnath Hills': [23.97, 86.15],
-        'Shikharji': [23.975, 86.155],
-        'Baba Baidyanath Temple': [24.16, 86.70],
-        'McCluskieganj': [23.60, 85.00],
-        'Rajrappa Temple': [23.62, 85.89],
-        'Patratu Valley': [23.66, 85.28]
+        // Main destinations from database
+        'Hundru Falls': [23.4375, 85.5917],
+        'Jonha Falls': [23.6300, 85.5300],
+        'Baidyanath Temple': [24.4872, 86.7014],
+        'Betla National Park': [23.8800, 84.2000],
+        'Ranchi Lake': [23.3600, 85.3300],
+        'Tagore Hill': [23.3800, 85.3300],
+        'Jubilee Park': [22.7947, 86.1951],
+        'Patratu Valley': [23.6600, 85.2800],
+        'Dassam Falls': [23.3500, 85.3200],
+        'Palamu Fort': [23.9100, 84.0700],
+        'Netarhat': [23.4700, 84.2600],
+        'Dimna Lake': [22.8500, 86.2500],
+        'Sun Temple Ranchi': [23.4200, 85.4400],
+        'Dalma Wildlife Sanctuary': [22.9300, 86.2000],
+        'Rajrappa Temple': [23.6200, 85.8900],
+        'Lodh Falls': [23.7200, 84.6800],
+        'Tata Steel Zoological Park': [22.7856, 86.1758],
+        'Maithon Dam': [23.8600, 86.8100],
+        'Deori Temple': [24.4900, 86.7100],
+        'Kanke Dam': [23.4300, 85.3200],
+        'Tribal Research Institute Museum': [23.3700, 85.3200],
+        'McCluskieganj': [23.6000, 85.0000],
+        'Hazaribagh National Park': [23.9900, 85.3600],
+        'Parasnath Hills': [23.9700, 86.1500],
+        'Usri Falls': [24.3200, 86.2200],
+        'Rock Garden Ranchi': [23.3900, 85.3400],
+        'Massanjore Dam': [24.4700, 87.2200],
+        'Jagannath Temple Ranchi': [23.3169, 85.2817],
+        'Konar Dam': [23.7800, 85.5300],
+        'Chhinnamastika Temple': [23.6200, 85.8900]
       };
 
 
