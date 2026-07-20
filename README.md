@@ -168,6 +168,10 @@ npm run dev
 
 ---
 
-## 📄 **License**
+## 👨‍💻 Author
 
-This project is currently developed for **educational & hackathon purposes only**.
+**Srijan Ghosh**
+
+Aspiring Software Engineer focused on building production-ready full-stack applications with modern web technologies and AI-powered user experiences.
+
+---
